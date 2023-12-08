@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lungsnap/Constants/appColors.dart';
 import 'package:lungsnap/Screens/SideMenu.dart';
 import 'package:lungsnap/Screens/resultScreen.dart';
-import 'package:lungsnap/Screens/take_picture_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,66 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 "assets/welcomeImages/landpage.png",
                 fit: BoxFit.fitWidth,
                 alignment: Alignment.bottomCenter,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                    "Tap the camera button to take a new scan. Ensure good lighting for accurate results.",
-                    style: TextStyle(fontSize: 16)),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 40.0, vertical: 10.0),
-                child: Container(
-                  height: 60,
-                  decoration: const BoxDecoration(
-                      gradient:
-                          LinearGradient(colors: [Colors.cyan, Colors.indigo])),
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      final cameras = await availableCameras();
-
-                      if (context.mounted) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TakePictureScreen(
-                              // Pass the appropriate camera to the TakePictureScreen widget.
-                              camera: cameras,
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0)),
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.camera_alt_outlined,
-                          color: Colors.white,
-                          size: 26,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          'Open camera',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
               ),
               const Padding(
                 padding: EdgeInsets.all(15.0),

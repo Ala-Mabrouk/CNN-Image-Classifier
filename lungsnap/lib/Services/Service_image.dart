@@ -37,7 +37,7 @@ class ServiceImage {
 
   Future<Map<String, dynamic>?> getModelMatrix() async {
     final response = await http.get(
-      Uri.parse('$baseUrl/confusion_matrix'),
+      Uri.parse('$baseUrl/infos'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
